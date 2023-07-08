@@ -3,7 +3,7 @@ const mongodb = require('mongodb')
 const mongoClient = mongodb.MongoClient
 let _db
 const mongoConnect=(callback)=>{
-  mongoClient.connect(`mongodb+srv://#########:#########S@cluster1.syv6z7h.mongodb.net/?retryWrites=true&w=majority`).then((res)=>{
+  mongoClient.connect(`mongodb+srv://#################@cluster1.syv6z7h.mongodb.net/?retryWrites=true&w=majority`).then((res)=>{
     callback()
     _db=res.db()
     console.log(res,'result')}).catch((err)=>console.log(err,'eRROR'))
