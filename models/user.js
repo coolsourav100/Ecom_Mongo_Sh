@@ -31,9 +31,17 @@ if(cartProductIndex>=0){
 }
 const updatedCart = {items: updatedCartItem}
 
-let db = getDb()
-return db.collection('users').updateOne({_id:new mongodb.ObjectId(this._id)},{$set:{cart:updatedCart}})
+
   }
+
+deleteItemFromCart(prodId){
+const updatedCartItem = this.cart.items.filter(item=>{
+  return item.prodId != prodId
+})
+
+let db = getDb()
+return db.collection('users').updateOne({_id:new mongodb.ObjectId(this._id)},{$set:{cart:{items:updatedCartItem}}})
+}
 
 getCart(){
   let db = getDb()
